@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login</title>
+    <title>Register</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -28,25 +28,56 @@
 
                 <!--Header-->
                 <div class="text-center">
-                    <h3>Login</h3>
+                    <h3>Register</h3>
                     <hr class="mt-2 mb-2">
                 </div>
 
                 <!--Body-->
                 <div class="md-form">
                     <i class="fa fa-user-circle-o prefix"></i>
-                    <input type="text" id="form2" class="form-control">
-                    <label for="form2">Your username</label>
+                    <input type="text" id="username" class="form-control">
+                    <label for="username">Your username</label>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" id="email" class="form-control">
+                    <label for="email">Your email</label>
                 </div>
 
                 <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="form4" class="form-control">
-                    <label for="form4">Your password</label>
+                    <input type="password" id="password" class="form-control">
+                    <label for="password">Your password</label>
                 </div>
 
+                <div class="md-form">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="confirm" class="form-control">
+                    <label for="confirm">Confirm password</label>
+                </div>
+
+
+                <div class = "text-center">
+                    <h5>Select User Type</h5>
+
+                    <div class="btn-group" role="group">
+                        <button type="button" data-toggle="dropdown" value="1" class="btn btn-primary dropdown-toggle">
+                            Option 1 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" data-value="1">Option 1</a></li>
+                            <li><a href="#" data-value="2">Option 2</a></li>
+                            <li><a href="#" data-value="3">Option 3</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <br>
+
                 <div class="text-center">
-                    <button class="btn btn-cyan">Login</button>
+                    <button class="btn btn-cyan">Register</button>
                 </div>
 
             </div>
@@ -54,7 +85,7 @@
             <!--Footer-->
             <div class="modal-footer">
                 <div class="options">
-                    <p>Not a member? <a href="register.html">Sign Up</a></p>
+                    <p>Already a member? <a href="index.html">Sign In</a></p>
                 </div>
             </div>
 
@@ -72,6 +103,12 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script type="text/javascript" src="js/dropdownToggle.js"></script>
+
+<script type="text/javascript" src="js/registration.js"></script>
+
+
 </body>
 
 </html>
