@@ -37,7 +37,6 @@ $(document).ready(function(){
         } else {
             $('#usernameForm').removeClass("has-danger");
             $('#usernameForm').find(".form-control-feedback").text("");
-            validContent = true;
         }
 
         if (email == '') {
@@ -47,7 +46,6 @@ $(document).ready(function(){
         } else {
             $('#emailForm').removeClass("has-danger");
             $('#emailForm').find(".form-control-feedback").text("");
-            validContent = true;
         }
 
         if (password == '') {
@@ -65,7 +63,6 @@ $(document).ready(function(){
             $('#passwordForm').find(".form-control-feedback").text("");
             $('#confirmForm').removeClass("has-danger");
             $('#confirmForm').find(".form-control-feedback").text("");
-            validContent = true;
         }
 
         if (userType == new String("Select User Type").valueOf()) {
@@ -75,7 +72,6 @@ $(document).ready(function(){
         } else {
             $('#usertypeForm').removeClass("has-danger");
             $('#usertypeForm').find(".form-control-feedback").text("");
-            validContent = true;
         }
 
 
@@ -92,7 +88,6 @@ $(document).ready(function(){
             } else {
                 $('#titleForm').removeClass("has-danger");
                 $('#titleForm').find(".form-control-feedback").text("");
-                validContent = true;
             }
 
             if (city == new String("City").valueOf() || state == new String("State").valueOf()) {
@@ -102,12 +97,11 @@ $(document).ready(function(){
             } else {
                 $('#cityStateForm').removeClass("has-danger");
                 $('#cityStateForm').find(".form-control-feedback").text("");
-                validContent = true;
             }
         }
 
         if (validContent) {
-            setTimeout(function() {window.location = "addPOI.html" });
+            setTimeout(function() {window.location = "cityScientistHome.html" });
         }
     });
 

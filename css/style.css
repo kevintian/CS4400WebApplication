@@ -17,6 +17,10 @@
     margin-bottom: 10px; /* Added */
 }
 
+.card-clickable:hover {
+    cursor:pointer;
+}
+
 html, body {
     max-height:100%;
     max-width: 100%;
