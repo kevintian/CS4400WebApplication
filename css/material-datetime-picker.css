@@ -26,13 +26,17 @@
     border-radius: 2px;
     opacity: 0;
     will-change: opacity;
-    transition: 200ms ease-in-out opacity, 200ms ease-in-out top; }
+    transition: 200ms ease-in-out opacity, 200ms ease-in-out top;
+}
 .c-datepicker--open {
     opacity: 1;
     top: 50%; }
 
 .c-datepicker__header {
-    position: relative; }
+    position: relative;
+    line-height: 1;
+    box-sizing: content-box;
+}
 
 .c-datepicker__header-day {
     height: 32px;
@@ -251,7 +255,9 @@
     font-size: 14px;
     line-height: 50px;
     padding: 160px 0 20px 0;
-    margin: 0 auto; }
+    margin: 0 auto;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;}
 .c-datepicker__clock .c-datepicker__clock__num {
     display: block;
     position: absolute;
@@ -476,7 +482,11 @@
     height: 200px;
     margin: -69px 0 0 0;
     width: 200px;
-    display: none; }
+    display: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+
+}
 .c-datepicker__clock__hours.active {
     display: block; }
 
