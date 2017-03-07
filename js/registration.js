@@ -4,8 +4,6 @@
 var cityOfficial = false;
 
 $(document).ready(function(){
-    $('.dropdown-menu a').on('click', dropdownToggle);
-
     $('#userMenu').click(function () {
         if (new String($('#userType').text().trim()).valueOf() == new String("City Official").valueOf()) {
             $('#cityOfficialForms').fadeIn();

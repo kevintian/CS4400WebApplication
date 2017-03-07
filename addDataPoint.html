@@ -13,6 +13,12 @@
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
 
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/material-datetime-picker.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -30,23 +36,32 @@
                 </div>
 
                 <!--Body-->
-                <div class="md-form">
-                    <input type="text" id="form2" class="form-control">
-                    <label for="form2">Your username</label>
+                <div id = "locationName" class="text-center text-inline">
+                    <label style = "font-size: 25px; padding-right: 20px" for = "locations">POI Name: </label>
+                    <div class="btn-group" role="group">
+                        <button id="locations" type="button" data-toggle="dropdown" value="1" class="btn btn-primary dropdown-toggle">
+                            Select Location<span class="caret"></span>
+                        </button>
+                        <ul id = "locationMenu" class="dropdown-menu">
+                            <li><a href="#" data-value="1">Test 1</a></li>
+                            <li><a href="#" data-value="2">Test 2</a></li>
+                            <li><a href="#" data-value="3">Tester 4</a></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="md-form">
-                    <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="form4" class="form-control">
-                    <label for="form4">Your password</label>
-                </div>
+                <a class="btn btn-primary c-btn c-datepicker-btn">
+                    <span class="material-icon">Open date picker</span>
+                </a>
+
+                <pre id="output"></pre>
 
             </div>
 
             <!--Footer-->
             <div class="modal-footer">
                 <button class="btn btn-primary">Submit</button>
-                <a class = "btn btn-default" href = "cityScientistHome.html">Back</a>
+                <a class="btn btn-default" href="cityScientistHome.html">Back</a>
             </div>
 
         </div>
@@ -65,6 +80,23 @@
 <script type="text/javascript" src="js/mdb.min.js"></script>
 
 <script type="text/javascript" src="js/dropdownToggle.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+
+<script src="js/material-datetime-picker.js" charset="utf-8"></script>
+
+<script>
+    var picker = new MaterialDatetimePicker({})
+        .on('submit', function(d) {
+            output.innerText = d;
+        });
+    var el = document.querySelector('.c-datepicker-btn');
+    el.addEventListener('click', function() {
+        picker.open();
+    }, false);
+</script>
 
 </body>
 

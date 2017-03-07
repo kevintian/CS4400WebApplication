@@ -1,6 +1,12 @@
 /**
  * Created by kevitian on 3/6/2017.
  */
+$( document ).ready(function () {
+
+    $('.dropdown-menu a').on('click', dropdownToggle);
+
+});
+
 function dropdownToggle() {
     // select the main dropdown button element
     var dropdown = $(this).parent().parent().prev();
