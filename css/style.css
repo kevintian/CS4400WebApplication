@@ -1,4 +1,24 @@
 /* YOUR CUSTOM STYLES */
-.background {
-    background-color: #4FC3F7 ;
+/*.background {*/
+    /*background-color: #4FC3F7 ;*/
+/*}*/
+
+.div-inline{
+    display:inline-block;
+}
+
+.dropdown-menu {width: 100%;}
+
+.dropdown-toggle {width: 100%;}
+
+.card-center {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+html, body {
+    max-height:100%;
+    max-width: 100%;
+    overflow:hidden;
 }
