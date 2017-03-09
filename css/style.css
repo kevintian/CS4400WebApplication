@@ -21,6 +21,13 @@
     cursor:pointer;
 }
 
+label.centered {
+    font-size: 25px;
+    padding-right: 20px;
+    vertical-align: middle;
+    margin-bottom: 0;
+}
+
 html, body {
     max-height:100%;
     max-width: 100%;

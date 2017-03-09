@@ -39,26 +39,68 @@
                 </div>
 
                 <!--Body-->
-                <div id = "locationName" class="text-center text-inline">
-                    <label style = "font-size: 25px; padding-right: 20px" for = "locations">POI Name: </label>
-                    <div class="btn-group" role="group">
-                        <button id="locations" type="button" data-toggle="dropdown" value="1" class="btn btn-primary dropdown-toggle">
-                            Select Location<span class="caret"></span>
-                        </button>
-                        <ul id = "locationMenu" class="dropdown-menu">
-                            <li><a href="#" data-value="1">Test 1</a></li>
-                            <li><a href="#" data-value="2">Test 2</a></li>
-                            <li><a href="#" data-value="3">Tester 4</a></li>
-                        </ul>
+                <div id="locationName" class="row text-center text-inline justify-content-center">
+                    <div class="col-xl-6 col-lg-12 col-12">
+                        <label class="centered" for="locations">POI Name: </label>
+                        <div class="btn-group w-50" role="group">
+                            <button id="locations" type="button" data-toggle="dropdown" value="1"
+                                    class="btn btn-primary dropdown-toggle">
+                                Select Location<span class="caret"></span>
+                            </button>
+                            <ul id="locationMenu" class="dropdown-menu">
+                                <li><a href="#" data-value="1">Test 1</a></li>
+                                <li><a href="#" data-value="2">Test 2</a></li>
+                                <li><a href="#" data-value="3">Tester 4</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <a class="btn btn-primary c-btn c-datepicker-btn">
-                    <span class="material-icon">Open date picker</span>
-                </a>
+                <br>
 
-                <pre id="output"></pre>
+                <div class="row text-center justify-content-center">
+                    <div class="col-xl-5 col-lg-10 col-12">
+                        <div class="md-form input-group" style="margin-bottom: 0;">
+                            <input id="datetime" type="text" class="form-control"
+                                   placeholder="Time and Date" disabled>
+                            <span class="input-group-btn">
+                            <button style="margin-bottom: .75rem;" class="btn btn-primary btn-lg c-datepicker-btn"
+                                    type="button"><i class="fa fa-calendar icon-large" aria-hidden="true"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
 
+                <br>
+
+                <div id="dataType" class="row justify-content-center text-center text-inline">
+                    <div class="col-xl-6 col-lg-12 col-12">
+                        <label class="centered" for="datatypes">Data Type: </label>
+                        <div class="btn-group w-50" role="group">
+                            <button id="datatypes" type="button" data-toggle="dropdown" value="1"
+                                    class="btn btn-primary dropdown-toggle">
+                                Select Data Type<span class="caret"></span>
+                            </button>
+                            <ul id="datatypeMenu" class="dropdown-menu">
+                                <li><a href="#" data-value="1">Test 1</a></li>
+                                <li><a href="#" data-value="2">Test 2</a></li>
+                                <li><a href="#" data-value="3">Tester 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-10 col-12">
+                        <div id="dataValueForm" class="md-form">
+                            <input type="text" id="dataValue" class="form-control">
+                            <label for="dataValue">Data Value</label>
+                            <div class="form-control-feedback"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!--Footer-->
@@ -90,16 +132,8 @@
 
 <script src="js/material-datetime-picker.js" charset="utf-8"></script>
 
-<script>
-    var picker = new MaterialDatetimePicker({})
-        .on('submit', function(d) {
-            output.innerText = d;
-        });
-    var el = document.querySelector('.c-datepicker-btn');
-    el.addEventListener('click', function() {
-        picker.open();
-    }, false);
-</script>
+<script src="js/datapoint.js"></script>
+
 
 </body>
 
