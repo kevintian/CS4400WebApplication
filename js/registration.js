@@ -99,7 +99,11 @@ $(document).ready(function(){
         }
 
         if (validContent) {
-            setTimeout(function() {window.location = "cityScientistHome.html" });
+            if (userType == new String("City Official").valueOf()) {
+                setTimeout(function() {window.location = "cityOfficialHome.html" });
+            } else {
+                setTimeout(function() {window.location = "cityScientistHome.html" });
+            }
         }
     });
 
