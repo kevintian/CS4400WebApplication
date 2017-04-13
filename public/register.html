@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Register</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div style="height: 100vh">
+    <div class="flex-center flex-column animated fadeIn background">
+        <!--Form without header-->
+        <div class="card w-25">
+            <div class="card-block">
+
+                <!--Header-->
+                <div class="text-center">
+                    <h3>Register</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+
+                <!--Body-->
+                <div id = "usernameForm" class="md-form">
+                    <i class="fa fa-user-circle-o prefix"></i>
+                    <input type="text" id="username" class="form-control">
+                    <label for="username">Your username</label>
+                    <div class="form-control-feedback"></div>
+                </div>
+
+                <div id = "emailForm" class="md-form">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" id="email" class="form-control">
+                    <label for="email">Your email</label>
+                    <div class="form-control-feedback"></div>
+                </div>
+
+                <div id = "passwordForm" class="md-form">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="password" class="form-control">
+                    <label for="password">Your password</label>
+                    <div class="form-control-feedback"></div>
+                </div>
+
+                <div id = "confirmForm" class="md-form">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="confirm" class="form-control">
+                    <label for="confirm">Confirm password</label>
+                    <div class="form-control-feedback"></div>
+                </div>
+
+                <div id = "usertypeForm" class="text-center">
+                    <div class="btn-group w-75" role="group">
+                        <button id="userType" type="button" data-toggle="dropdown" value="1" class="btn btn-primary dropdown-toggle">
+                            Select User Type <span class="caret"></span>
+                        </button>
+                        <ul id = "userMenu" class="dropdown-menu">
+                            <li><a href="#" data-value="1">City Scientist</a></li>
+                            <li><a href="#" data-value="2">City Official</a></li>
+                        </ul>
+                    </div>
+                    <div class="form-control-feedback"></div>
+                </div>
+
+                <div id = "cityOfficialForms" style = "display: none;">
+                    <br>
+                    <div id = "titleForm" class="md-form">
+                        <i class="fa fa-id-card prefix"></i>
+                        <input type="text" id="title" class="form-control">
+                        <label for="title">Your title</label>
+                        <div class="form-control-feedback"></div>
+                    </div>
+
+                    <div id = "cityStateForm" class="text-center">
+
+                        <div class="btn-group" role="group" style = "width:40%;">
+                            <button id = "city" type="button" data-toggle="dropdown" value="1"
+                                    class="btn btn-primary dropdown-toggle">
+                                City<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-value="1">Atlanta</a></li>
+                                <li><a href="#" data-value="2">Savannah</a></li>
+                                <li><a href="#" data-value="3">Snellville</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group" role="group" style = "width:30%;">
+                            <button id = "state" type="button" data-toggle="dropdown" value="1"
+                                    class="btn btn-primary dropdown-toggle">
+                                State<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-value="1">GA</a></li>
+                                <li><a href="#" data-value="2">WA</a></li>
+                                <li><a href="#" data-value="3">TX</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="form-control-feedback"></div>
+
+                    </div>
+                </div>
+
+
+                <br>
+
+                <div class="text-center">
+                    <button id = "register" class="btn btn-cyan">Register</button>
+                </div>
+
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                <div class="options">
+                    <p>Already a member? <a href="index.html">Sign In</a></p>
+                </div>
+            </div>
+
+        </div>
+        <!--/Form without header-->
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script type="text/javascript" src="js/dropdownToggle.js"></script>
+
+<script type="text/javascript" src="js/registration.js"></script>
+
+
+</body>
+
+</html>
