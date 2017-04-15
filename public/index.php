@@ -35,18 +35,18 @@
                 <!--Body-->
                 <div class="md-form">
                     <i class="fa fa-user-circle-o prefix"></i>
-                    <input type="text" id="form2" class="form-control">
-                    <label for="form2">Your username</label>
+                    <input type="text" id="username" class="form-control">
+                    <label for="username">Your username</label>
                 </div>
 
                 <div class="md-form">
                     <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="form4" class="form-control">
-                    <label for="form4">Your password</label>
+                    <input type="password" id="password" class="form-control">
+                    <label for="password">Your password</label>
                 </div>
 
                 <div class="text-center">
-                    <a href = "cityScientistHome.html" class="btn btn-cyan">Login</a>
+                    <button id="login" class="btn btn-cyan">Login</button>
                 </div>
 
             </div>
@@ -72,6 +72,9 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
+<!--Custom JavaScript-->
+<script type="text/javascript" src="js/login.js"></script>
+
 </body>
 
 </html>

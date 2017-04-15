@@ -3,7 +3,7 @@
  */
 var cityOfficial = false;
 
-$(document).ready(function(){
+$(document).ready(function () {
     $('#userMenu').click(function () {
         if (new String($('#userType').text().trim()).valueOf() == new String("City Official").valueOf()) {
             $('#cityOfficialForms').fadeIn();
@@ -12,7 +12,6 @@ $(document).ready(function(){
             $('#cityOfficialForms').fadeOut();
             cityOfficial = false;
         }
-        console.log(new String($('#userType').text()).valueOf() == new String("City Official").valueOf());
     });
 
 
@@ -27,6 +26,12 @@ $(document).ready(function(){
         var password = $('#password').val();
         var confirmPass = $('#confirm').val();
         var userType = new String($('#userType').text().trim());
+
+        //City official only
+        var title = $('#title').val();
+        var city = new String($('#city').text().trim());
+        var state = new String($('#state').text().trim());
+
 
         if (name == '') {
             $('#usernameForm').addClass("has-danger");
@@ -75,9 +80,6 @@ $(document).ready(function(){
 
         //if user is a city official
         if (cityOfficial) {
-            var title = $('#title').val();
-            var city = new String($('#city').text().trim());
-            var state = new String($('#state').text().trim());
 
             if (title == '') {
                 $('#titleForm').addClass("has-danger");
@@ -99,11 +101,40 @@ $(document).ready(function(){
         }
 
         if (validContent) {
-            if (userType == new String("City Official").valueOf()) {
-                setTimeout(function() {window.location = "cityOfficialHome.html" });
-            } else {
-                setTimeout(function() {window.location = "cityScientistHome.html" });
-            }
+            $.ajax({
+                type: 'POST',
+                url: '../resources/library/register.php',
+                data: {
+                    username: name,
+                    email: email,
+                    password: password,
+                    type: userType,
+                    title: title,
+                    city: city,
+                    state: state
+                },
+                success: function (data) {
+                    console.log(data);
+                    var result = JSON.parse(data);
+                    console.log(result);
+                    console.log(result['success'] == true);
+
+                    alert(result['message']);
+                    if (result['success']) {
+                        var url;
+                        if (userType == new String("City Official").valueOf()) {
+                            url = 'cityOfficialHome.html';
+                        } else {
+                            url = 'cityScientistHome.html';
+                        }
+                        $(location).attr('href', url);
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
         }
     });
 
