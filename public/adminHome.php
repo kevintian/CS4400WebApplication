@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +19,6 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
-    <!--<link href="css/animate.css" rel="stylesheet">-->
 
 
 
@@ -28,8 +30,8 @@
     <div class="flex-column">
 
         <div class = "text-center animated fadeIn" style="animation-duration: 2s; margin: 5em 0 5em 0">
-            <h1>Welcome, Kevin</h1>
-            <p class="text-muted">City Official</p>
+            <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
+            <p class="text-muted">Administrator</p>
         </div>
 
         <div class = "text-center animated fadeInDown">
@@ -37,18 +39,18 @@
             <h2>What would you like to do?</h2>
 
             <div class="card-deck w-50 card-center">
-                <div id = "POIcard" class="card hoverable card-clickable">
-                    <img class="card-img-top" src="img/filterAndSearch.png" alt="Card image cap">
+                <div id = "pendingUserCard" class="card hoverable card-clickable">
+                    <img class="card-img-top" src="img/reviewUsers.png" alt="Card image cap">
                     <div class="card-block">
-                        <h4 class="card-title">Filter & Search POI</h4>
+                        <h4 class="card-title">Review pending user accounts</h4>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                 </div>
 
-                <div id = "datacard" class="card hoverable card-clickable">
-                    <img class="card-img-top" src="img/createReport.png" alt="Card image cap">
+                <div id = "pendingDataCard" class="card hoverable card-clickable">
+                    <img class="card-img-top" src="img/reviewData.png" alt="Card image cap">
                     <div class="card-block">
-                        <h4 class="card-title">Generate POI Report</h4>
+                        <h4 class="card-title">Review pending data points</h4>
                         <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                 </div>

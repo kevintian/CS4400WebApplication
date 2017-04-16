@@ -123,9 +123,9 @@ $(document).ready(function () {
                     if (result['success']) {
                         var url;
                         if (userType == new String("City Official").valueOf()) {
-                            url = 'cityOfficialHome.html';
+                            url = 'cityOfficialHome.php';
                         } else {
-                            url = 'cityScientistHome.html';
+                            url = 'cityScientistHome.php';
                         }
                         $(location).attr('href', url);
                     }

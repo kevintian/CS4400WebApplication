@@ -21,11 +21,11 @@ $(function () {
                      1:  string_a > string_b
                      */
                     if (userInfo["user_type"].localeCompare("City Official") == 0) {
-                        url = 'cityOfficialHome.html';
+                        url = 'cityOfficialHome.php';
                     } else if (userInfo["user_type"].localeCompare("City Scientist") == 0) {
-                        url = 'cityScientistHome.html';
+                        url = 'cityScientistHome.php';
                     } else if (userInfo["user_type"].localeCompare("Admin") == 0) {
-                        url = 'adminHome.html';
+                        url = 'adminHome.php';
                     } else {
                         alert(data);
                     }
