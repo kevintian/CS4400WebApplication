@@ -4,6 +4,10 @@
 var cityOfficial = false;
 
 $(document).ready(function () {
+
+    //Initialize dropdown toggles
+    $('.dropdown-menu a').on('click', dropdownToggle);
+
     $('#userMenu').click(function () {
         if (new String($('#userType').text().trim()).valueOf() == new String("City Official").valueOf()) {
             $('#cityOfficialForms').fadeIn();

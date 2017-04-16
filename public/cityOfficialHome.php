@@ -19,9 +19,6 @@ session_start();
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
-
-
-
 </head>
 
 <body>
