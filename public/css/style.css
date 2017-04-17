@@ -21,6 +21,10 @@
     cursor:pointer;
 }
 
+.hoverableRows tr {
+    cursor:pointer;
+}
+
 label.centered {
     font-size: 25px;
     padding-right: 20px;
