@@ -45,19 +45,37 @@ $(document).ready(function () {
         //Store form values
         var poiName = new String($('#locations').text().trim());
         var dataType = new String($('#datatypes').text().trim());
-        var datetime = $('#datetime').val();
+        var dateTime = $('#datetime').val();
         var dataValue = $('#dataValue').val();
 
         if (poiName == new String("Select Location").valueOf()
             || dataType == new String("Select Data Type").valueOf()
-            || datetime === ""
+            || dateTime === ""
             || dataValue === "") {
             alert('Please fill out all fields!');
         } else if (!isNormalInteger(dataValue)) {
             alert('Data value must to be a non-negative integers!');
         } else {
             //submit values
-            alert('Valid input');
+            $.ajax({
+                type: 'POST',
+                url: '../resources/library/addDatapoint.php',
+                data: {
+                    poiName: poiName,
+                    dataType: dataType,
+                    dateTime: dateTime,
+                    dataValue: dataValue
+                },
+                success: function (data) {
+                    //Either shows a success or an error
+                    alert(data);
+                    location.reload();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
         }
     });
 });

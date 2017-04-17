@@ -118,10 +118,7 @@ $(document).ready(function () {
                     state: state
                 },
                 success: function (data) {
-                    console.log(data);
                     var result = JSON.parse(data);
-                    console.log(result);
-                    console.log(result['success'] == true);
 
                     alert(result['message']);
                     if (result['success']) {
