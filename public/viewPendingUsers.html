@@ -1,10 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Pending Users</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>View Users</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
+
+
 </head>
+
 <body>
-Pending Users
+
+<div style="height: 100vh">
+    <div class="flex-center flex-column animated fadeIn background">
+        <!--Form without header-->
+        <div class="card w-50">
+            <div class="card-block">
+
+                <!--Header-->
+                <div class="text-center">
+                    <h3>View Pending Users</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+
+                <!--Body-->
+                <table id="example" class="mdl-data-table hoverableRows">
+                    <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Title</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Title</th>
+                    </tr>
+                    </tfoot>
+                </table>
+
+
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                <a class="btn btn-default" style="font-size: 14px; font-family:Roboto,sans-serif" href="adminHome.php">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.material.min.js"></script>
+
+<script type="text/javascript" src="js/viewPendingUsers.js"></script>
+
+
 </body>
+
 </html>

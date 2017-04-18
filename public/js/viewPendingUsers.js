@@ -1,15 +1,19 @@
+/**
+ * Created by kevin on 4/18/2017.
+ */
 $(document).ready(function () {
     $('#example').DataTable({
         "ajax": {
-            "url": "../resources/library/getPendingData.php",
+            "url": "../resources/library/getPendingUsers.php",
             "type": "GET",
             "dataSrc": ""
         },
         "columns": [
-            {"data": "locationName"},
-            {"data": "dateSubmitted"},
-            {"data": "dataValue"},
-            {"data": "type"}
+            {"data": "username"},
+            {"data": "email"},
+            {"data": "city"},
+            {"data": "state"},
+            {"data": "title"}
         ],
         columnDefs: [
             {
