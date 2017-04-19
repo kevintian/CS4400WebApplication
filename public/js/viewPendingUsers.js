@@ -2,7 +2,7 @@
  * Created by kevin on 4/18/2017.
  */
 $(document).ready(function () {
-    $('#example').DataTable({
+    var table = $('#example').DataTable({
         "ajax": {
             "url": "../resources/library/getPendingUsers.php",
             "type": "GET",
@@ -40,6 +40,10 @@ $(document).ready(function () {
     $('#example tbody').on('click', 'tr', function () {
         $(this).toggleClass('table-info');
     });
+
+    $('#accept').click( function () {
+        alert(table.rows('.table-info').data().length +' row(s) selected' );
+    } );
 
 });
 /**

@@ -37,6 +37,10 @@ $(document).ready(function () {
         $(this).toggleClass('table-info');
     });
 
+    $('#accept').click( function () {
+        alert(table.rows('.table-info').data().length +' row(s) selected' );
+    } );
+
 });
 /**
  * Created by kevin on 4/17/2017.
