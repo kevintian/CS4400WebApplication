@@ -27,10 +27,11 @@ if ($response->num_rows != 0) {
         $userInfo = array("user_type" => $_SESSION['user_type'], "username" => $username);
         echo json_encode($userInfo);
     } else {
-        echo "Incorrect Password";
+        echo "Incorrect username and password combination";
     }
 } else {
-    echo "User does not exist!";
+    //We used to throw different error messages but that's not secure so changing this to the same
+    echo "Incorrect username and password combination";
 }
 
 //Close prepared statement and result set
