@@ -42,3 +42,14 @@ html, body {
     font-size: 14px;
     font-family:Roboto,sans-serif
 }
+
+.logout {
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.logout:hover {
+    text-shadow: 1px 0 0 currentColor;
+    transition: 0.5s;
+    cursor: pointer;
+}

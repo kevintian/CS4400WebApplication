@@ -3,9 +3,6 @@
  */
 $(document).ready(function() {
 
-
-
-
     $('#POIcard').on('click', function(event) {
         window.location = "addPOI.html";
     });
@@ -28,5 +25,18 @@ $(document).ready(function() {
 
     $('#filterSearchPOICard').on('click', function(event) {
         window.location = "filterSearchPOI.html";
+    });
+
+    $('#logout').on('click', function() {
+        $.ajax({
+            type: 'POST',
+            url: '../resources/library/logout.php',
+            success: function () {
+                $(location).attr('href', 'index.html');
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert("Unable to logout!");
+            }
+        });
     });
 });
