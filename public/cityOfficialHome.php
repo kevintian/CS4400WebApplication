@@ -29,7 +29,9 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
 <body>
 
 <div style="height: 100vh">
-    <h2 class="text-right logout" id = "logout">Logout</h2>
+    <div class="text-right">
+        <h2 class="text-right logout" id="logout">Logout</h2>
+    </div>
     <div class="flex-column">
 
         <div class="text-center animated fadeIn" style="animation-duration: 2s; margin: 4em 0 4em 0">

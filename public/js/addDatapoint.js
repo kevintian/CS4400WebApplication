@@ -5,7 +5,6 @@ $(document).ready(function () {
         url: '../resources/library/populateDropdowns.php',
         success: function (data) {
             var result = JSON.parse(data);
-            console.log(result);
 
             //Populate POI names
             $('#locationMenu').empty();

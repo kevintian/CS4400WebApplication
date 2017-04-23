@@ -9,6 +9,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
+
     <link href="css/material-datetime-picker.css" rel="stylesheet">
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +24,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
 
 
 </head>
@@ -70,9 +71,9 @@
 
             <!--Footer-->
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-primary btn-resize" data-toggle="modal" data-target="#myModal">
                     Edit Filters</button>
-                <a class="btn btn-default" href="cityOfficialHome.php">Back</a>
+                <a class="btn btn-default btn-resize" href="cityOfficialHome.php">Back</a>
             </div>
         </div>
     </div>
@@ -93,13 +94,13 @@
                 <div class="modal-body">
                     <div id="locationName" class="row text-center text-inline justify-content-center">
                         <div class="col-xl-6 col-lg-12 col-md-12">
-                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="locations">POI Name: </label>
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;;" class="centered" for="locations">POI Name: </label>
                             <div class="btn-group w-100" style="width:60%" role="group">
-                                <button id="locations" type="button" data-toggle="dropdown" value="1"
+                                <button id="locations" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
                                         class="btn btn-primary dropdown-toggle">
                                     Select Location<span class="caret"></span>
                                 </button>
-                                <ul id="locationMenu" class="dropdown-menu">
+                                <ul id="locationMenu" class="dropdown-menu" style = "color:#0275d8">
                                     <!--Will be dynamically added by JS-->
                                     <li><a href="#" data-value="1">Loading...</a></li>
                                 </ul>
@@ -111,9 +112,9 @@
 
                     <div id="cityStateForm" class="row text-center text-inline justify-content-center">
                         <div class="col-xl-6 col-lg-12 col-12">
-                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="cityStateName">City & State: </label>
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="cityStateName">City & State: </label>
                             <div class="btn-group w-100" role="group">
-                                <button id="cityStateName" type="button" data-toggle="dropdown" value="1"
+                                <button id="cityStateName" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
                                         class="btn btn-primary dropdown-toggle">Select CityState<span class="caret"></span>
                                 </button>
                                 <ul id="cityStateMenu" class="dropdown-menu">
@@ -127,7 +128,7 @@
 
                     <div id="flaggedForm" class="row text-center text-inline justify-content-center">
                         <div class="col-xl-6 col-lg-12 col-12">
-                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="flagged">Flagged: </label>
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="flagged">Flagged: </label>
                             <div id = "flagged" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-primary">
                                     <input type="radio" checked autocomplete="off"> Yes
@@ -141,7 +142,7 @@
 
                     <br>
 
-                    <div class = "row justify-content-center" style = "padding-bottom: 10px;">
+                    <div class = "row justify-content-center" style = "padding-bottom: 20px;">
                         <div class = "centered" style = "font-weight: 300;">POI Zip:</div>
                     </div>
 
@@ -155,7 +156,7 @@
                         </div>
                     </div>
 
-                    <div class = "row justify-content-center" style = "padding-bottom: 15px;">
+                    <div class = "row justify-content-center" style = "padding-bottom: 20px;">
                         <div class = "centered" style = "font-weight: 300;">Date Flagged:</div>
                     </div>
 
@@ -206,6 +207,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+
+<script src="js/material-datetime-picker.js" charset="utf-8"></script>
 
 <script src="js/filterSearchPOI.js"></script>
 

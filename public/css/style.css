@@ -46,6 +46,7 @@ html, body {
 .logout {
     padding: 20px;
     transition: 0.5s;
+    display:inline-block;
 }
 
 .logout:hover {
