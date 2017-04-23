@@ -20,6 +20,10 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.material.min.css">
+
 
 </head>
 
@@ -38,16 +42,36 @@
                 </div>
 
                 <!--Body-->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                    Edit Filters
-                </button>
+                <table id="example" class="mdl-data-table hoverableRows">
+                    <thead>
+                    <tr>
+                        <th>Location Name</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip Code</th>
+                        <th>Flagged?</th>
+                        <th>Date Flagged</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>Location Name</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip Code</th>
+                        <th>Flagged?</th>
+                        <th>Date Flagged</th>
+                    </tr>
+                    </tfoot>
+                </table>
+
 
             </div>
 
             <!--Footer-->
             <div class="modal-footer">
-                <button id = "submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                    Edit Filters</button>
                 <a class="btn btn-default" href="cityOfficialHome.php">Back</a>
             </div>
         </div>
@@ -62,8 +86,8 @@
             <!--Content-->
             <div class="modal-content">
                 <!--Header-->
-                <div class="modal-header">
-                    <h4 class="modal-title w-100" id="myModalLabel">Apply Filters</h4>
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100" id="myModalLabel">Filter Settings</h4>
                 </div>
                 <!--Body-->
                 <div class="modal-body">
@@ -105,10 +129,10 @@
                         <div class="col-xl-6 col-lg-12 col-12">
                             <label style="font-weight: 300; padding-right: 0px;" class="centered" for="flagged">Flagged: </label>
                             <div id = "flagged" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-primary active">
+                                <label class="btn btn-primary">
                                     <input type="radio" checked autocomplete="off"> Yes
                                 </label>
-                                <label class="btn btn-primary">
+                                <label class="btn btn-primary active">
                                     <input type="radio" autocomplete="off"> No
                                 </label>
                             </div>
@@ -117,9 +141,10 @@
 
                     <br>
 
-                    <div class = "row justify-content-center">
+                    <div class = "row justify-content-center" style = "padding-bottom: 10px;">
                         <div class = "centered" style = "font-weight: 300;">POI Zip:</div>
                     </div>
+
                     <div class="row justify-content-center">
                         <div class="col-xl-5 col-lg-10 col-12">
                             <div id="zipCodeForm" class="md-form">
@@ -130,9 +155,10 @@
                         </div>
                     </div>
 
-                    <div class = "row justify-content-center">
+                    <div class = "row justify-content-center" style = "padding-bottom: 15px;">
                         <div class = "centered" style = "font-weight: 300;">Date Flagged:</div>
                     </div>
+
                     <div class="row text-center justify-content-center">
                         <br>
                         <div class="col-xl-4 col-lg-6 col-12">
@@ -150,10 +176,9 @@
                     </div>
                 </div>
                 <!--Footer-->
-                <div class="modal-footer">
+                <div class="modal-footer flex-center">
                     <button type="button" class="btn btn-secondary">Apply Filters</button>
                     <button type="button" class="btn btn-info">Clear Filters</button>
-
                 </div>
             </div>
             <!--/.Content-->
@@ -172,13 +197,17 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.material.min.js"></script>
+
 <script src="js/dropdownToggle.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
 
-<script src="js/filterPOI.js"></script>
+<script src="js/filterSearchPOI.js"></script>
 
 
 </body>
