@@ -54,3 +54,12 @@ html, body {
     transition: 0.5s;
     cursor: pointer;
 }
+
+.c-datepicker {
+    z-index: 9999;
+}
+
+.c-scrim {
+    z-index: 9990;
+}
+

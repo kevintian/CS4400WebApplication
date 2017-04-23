@@ -14,50 +14,65 @@ $city = $_POST["city"];
 $state = $_POST["state"];
 $zipCode = $_POST["zipCode"];
 $flag = $_POST["flag"];
-$dateFlagged = $_POST["dateFlagged"];
+$dateFlaggedStart = $_POST["dateFlaggedStart"];
+$dateFlaggedEnd = $_POST["dateFlaggedEnd"];
 
 //This is to create the query string
 $filterValues = [];
 
 /* Bind parameters. Types: s = string, i = integer, d = double,  b = blob */
+$param_type = '';
+
 $a_params = array(
-    0 => "",
+    0 => & $param_type
 );
 
 if($locationName) {
     $filterValues[] = " locationName = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $locationName;
+    $param_type .= 's';
+    $a_params[] = & $locationName;
 }
 
 if($city){
     $filterValues[] = " city = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $city;
+    $param_type .= 's';
+    $a_params[] = & $city;
 }
 
 if($state) {
     $filterValues[] = " state = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $state;
+    $param_type .= 's';
+    $a_params[] = & $state;
 }
 
 if($zipCode) {
     $filterValues[] = " zipcode = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $zipCode;
+    $param_type .= 's';
+    $a_params[] = & $zipCode;
 }
 
 if($flag) {
     $filterValues[] = " flag = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $flag;
+    $param_type .= 's';
+
+    if ($flag == "Yes") {
+        $flag = "1";
+    } else {
+        $flag = "0";
+    }
+    $a_params[] = & $flag;
 }
 
-if($dateFlagged) {
-    $filterValues[] = " dateFlagged = ? ";
-    $a_params[0] = $a_params[0]."s";
-    $a_params[] = $dateFlagged;
+if($dateFlaggedStart) {
+    $filterValues[] = " dateFlagged > ? ";
+    $param_type .= 's';
+    $a_params[] = & $dateFlaggedStart;
+}
+
+if($dateFlaggedEnd) {
+    $filterValues[] = " dateFlagged < ? ";
+    $param_type .= 's';
+    $a_params[] = & $dateFlaggedEnd;
 }
 
 $query = "SELECT * FROM POI";

@@ -18,13 +18,11 @@
     <link href="css/mdb.min.css" rel="stylesheet">
 
     <!--Custom CSS-->
-    <link href="css/style.css" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
 
-
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -127,14 +125,17 @@
                     <br>
 
                     <div id="flaggedForm" class="row text-center text-inline justify-content-center">
-                        <div class="col-xl-6 col-lg-12 col-12">
+                        <div class="col-xl-8 col-lg-12 col-12">
                             <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="flagged">Flagged: </label>
                             <div id = "flagged" class="btn-group" data-toggle="buttons">
                                 <label class="btn btn-primary">
-                                    <input type="radio" checked autocomplete="off"> Yes
+                                    <input type="radio" autocomplete="off"> Yes
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" autocomplete="off"> No
                                 </label>
                                 <label class="btn btn-primary active">
-                                    <input type="radio" autocomplete="off"> No
+                                    <input type="radio" checked autocomplete="off"> Both
                                 </label>
                             </div>
                         </div>
@@ -178,8 +179,8 @@
                 </div>
                 <!--Footer-->
                 <div class="modal-footer flex-center">
-                    <button type="button" class="btn btn-secondary">Apply Filters</button>
-                    <button type="button" class="btn btn-info">Clear Filters</button>
+                    <button type="button" id = "applyFilters" class="btn btn-secondary">Apply Filters</button>
+                    <button type="button" id = "clearFilters" class="btn btn-info">Clear Filters</button>
                 </div>
             </div>
             <!--/.Content-->
