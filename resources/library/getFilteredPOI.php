@@ -81,7 +81,7 @@ $query = "SELECT * FROM POI";
 $stmt;
 
 if (!empty($filterValues)) {
-    $query .= ' WHERE ' . implode(' AND ', $filterValues);
+    $query .= ' WHERE' . implode('AND', $filterValues);
     $stmt  = $dbc->prepare($query);
     call_user_func_array(array($stmt, 'bind_param'), $a_params);
 } else {

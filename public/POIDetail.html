@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Filter POI Report</title>
+    <title>POI Detail</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -36,7 +36,7 @@
 
                 <!--Header-->
                 <div class="text-center">
-                    <h3>View POIs</h3>
+                    <h3 id="POIHeader">POI Detail</h3>
                     <hr class="mt-2 mb-2">
                 </div>
 
@@ -44,22 +44,16 @@
                 <table id="example" class="mdl-data-table hoverableRows">
                     <thead>
                     <tr>
-                        <th>Location Name</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
-                        <th>Flagged?</th>
-                        <th>Date Flagged</th>
+                        <th>Data Type</th>
+                        <th>Data Value</th>
+                        <th>Timestamp</th>
                     </tr>
                     </thead>
                     <tfoot>
                     <tr>
-                        <th>Location Name</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
-                        <th>Flagged?</th>
-                        <th>Date Flagged</th>
+                        <th>Data Type</th>
+                        <th>Data Value</th>
+                        <th>Timestamp</th>
                     </tr>
                     </tfoot>
                 </table>
@@ -69,9 +63,11 @@
 
             <!--Footer-->
             <div class="modal-footer">
+                <button type="button" id="flagPoint" class="btn btn-danger btn-resize">Flag POI</button>
                 <button type="button" class="btn btn-primary btn-resize" data-toggle="modal" data-target="#myModal">
-                    Edit Filters</button>
-                <a class="btn btn-default btn-resize" href="cityOfficialHome.php">Back</a>
+                    Edit Filters
+                </button>
+                <a class="btn btn-default btn-resize" href="filterSearchPOI.html">Back</a>
             </div>
         </div>
     </div>
@@ -90,15 +86,17 @@
                 </div>
                 <!--Body-->
                 <div class="modal-body">
-                    <div id="locationName" class="row text-center text-inline justify-content-center">
-                        <div class="col-xl-6 col-lg-12 col-md-12">
-                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;;" class="centered" for="locations">POI Name: </label>
+                    <div id="dataType" class="row text-center text-inline justify-content-center">
+                        <div class="col-xl-6 col-lg-12 col-12">
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered"
+                                   for="datatypes">Data Type: </label>
                             <div class="btn-group w-100" style="width:60%" role="group">
-                                <button id="locations" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
+                                <button id="datatypes" type="button" data-toggle="dropdown" value="1"
+                                        style="font-size: 1rem"
                                         class="btn btn-primary dropdown-toggle">
-                                    Select Location<span class="caret"></span>
+                                    Select Data Type<span class="caret"></span>
                                 </button>
-                                <ul id="locationMenu" class="dropdown-menu" style = "color:#0275d8">
+                                <ul id="datatypeMenu" class="dropdown-menu" style="color:#0275d8">
                                     <!--Will be dynamically added by JS-->
                                     <li><a href="#" data-value="1">Loading...</a></li>
                                 </ul>
@@ -108,57 +106,30 @@
 
                     <br>
 
-                    <div id="cityStateForm" class="row text-center text-inline justify-content-center">
-                        <div class="col-xl-6 col-lg-12 col-12">
-                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="cityStateName">City & State: </label>
-                            <div class="btn-group w-100" role="group">
-                                <button id="cityStateName" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
-                                        class="btn btn-primary dropdown-toggle">Select CityState<span class="caret"></span>
-                                </button>
-                                <ul id="cityStateMenu" class="dropdown-menu">
-                                    <li><a href="#" data-value="1">Loading</a></li>
-                                </ul>
+                    <div class="row justify-content-center" style="padding-bottom: 20px;">
+                        <div class="centered" style="padding-right: 0px; font-weight: 300;">Data Value Range:</div>
+                    </div>
+
+                    <div class="row text-center justify-content-center">
+                        <br>
+                        <div class="col-xl-4 col-lg-6 col-12">
+                            <div class="md-form input-group" style="margin-bottom: 0;">
+                                <input id="minValue" type="text" class="form-control">
+                                <label id="minValueLabel" for="minValue">Min Value</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-12">
+                            <div class="md-form input-group" style="margin-bottom: 0;">
+                                <input id="maxValue" type="text" class="form-control">
+                                <label id="maxValueLabel" for="maxValue">Max Value</label>
                             </div>
                         </div>
                     </div>
 
                     <br>
 
-                    <div id="flaggedForm" class="row text-center text-inline justify-content-center">
-                        <div class="col-xl-8 col-lg-12 col-12">
-                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="flagged">Flagged: </label>
-                            <div id = "flagged" class="btn-group" data-toggle="buttons">
-                                <label class="btn btn-primary">
-                                    <input type="radio" autocomplete="off"> Yes
-                                </label>
-                                <label class="btn btn-primary">
-                                    <input type="radio" autocomplete="off"> No
-                                </label>
-                                <label class="btn btn-primary active">
-                                    <input type="radio" checked autocomplete="off"> Both
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <br>
-
-                    <div class = "row justify-content-center" style = "padding-bottom: 20px;">
-                        <div class = "centered" style = "padding-right: 0px; font-weight: 300;">POI Zip:</div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-xl-5 col-lg-10 col-12">
-                            <div id="zipCodeForm" class="md-form">
-                                <input type="text" id="zipCode" class="form-control">
-                                <label for="zipCode">Zip Code</label>
-                                <div class="form-control-feedback"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class = "row justify-content-center" style = "padding-bottom: 20px;">
-                        <div class = "centered" style = "padding-right: 0px; font-weight: 300;">Date Flagged:</div>
+                    <div class="row justify-content-center" style="padding-bottom: 20px;">
+                        <div class="centered" style="padding-right: 0px; font-weight: 300;">Date Flagged:</div>
                     </div>
 
                     <div class="row text-center justify-content-center">
@@ -166,21 +137,21 @@
                         <div class="col-xl-4 col-lg-6 col-12">
                             <div class="md-form input-group" style="margin-bottom: 0;">
                                 <input id="startDate" type="text" class="form-control c-datepicker-btn">
-                                <label id = "startDateLabel" for="startDate">Start Time</label>
+                                <label id="startDateLabel" for="startDate">Start Time</label>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-6 col-12">
                             <div class="md-form input-group" style="margin-bottom: 0;">
                                 <input id="endDate" type="text" class="form-control c-datepicker-btn">
-                                <label id = "endDateLabel" for="endDate">End Time</label>
+                                <label id="endDateLabel" for="endDate">End Time</label>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--Footer-->
                 <div class="modal-footer flex-center">
-                    <button type="button" id = "applyFilters" class="btn btn-secondary">Apply Filters</button>
-                    <button type="button" id = "clearFilters" class="btn btn-info">Clear Filters</button>
+                    <button type="button" id="applyFilters" class="btn btn-secondary">Apply Filters</button>
+                    <button type="button" id="clearFilters" class="btn btn-info">Clear Filters</button>
                 </div>
             </div>
             <!--/.Content-->
@@ -211,7 +182,7 @@
 
 <script src="js/material-datetime-picker.js" charset="utf-8"></script>
 
-<script src="js/filterSearchPOI.js"></script>
+<script src="js/POIDetail.js"></script>
 
 
 </body>

@@ -110,7 +110,7 @@ $(document).ready(function () {
                 "sPrevious": "Prev"
             }
         },
-        "pageLength": 7
+        "pageLength": 7,
     });
 
     //Hides padding on left
@@ -118,6 +118,7 @@ $(document).ready(function () {
 
     //Formats bottom properly
     $('.mdl-grid').last().find();
+
 
     var startPicker = new MaterialDatetimePicker({}).on('submit', function (d) {
         $("#startDateLabel").addClass('active');
@@ -147,5 +148,10 @@ $(document).ready(function () {
 
     $('#applyFilters').click(function () {
         table.ajax.reload();
+    });
+
+    $('#example tbody').on('click', 'tr', function () {
+        console.log(table.row(this).data()['locationName']);
+        $(location).attr('href', 'POIDetail.html?location=' + table.row(this).data()['locationName']);
     });
 });
