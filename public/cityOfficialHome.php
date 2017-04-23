@@ -48,8 +48,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/filterAndSearch.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Filter & Search POI</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Filter existing POIs by location name, city, state, flagged status, and date flagged. One or more of these filters can be applied at a given time.</p>
                     </div>
                 </div>
 
@@ -57,8 +56,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/createReport.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Generate POI Report</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Generate a report of all existing POIs. Details in this report include POI location, city, state, mold data, air quality data, flagged status, and number of data points.</p>
                     </div>
                 </div>
             </div>

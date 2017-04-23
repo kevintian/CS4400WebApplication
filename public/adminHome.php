@@ -48,8 +48,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/reviewUsers.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Review pending user accounts</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">View, accept, and reject pending user accounts. One or more accounts can be selected for acceptance/rejection.</p>
                     </div>
                 </div>
 
@@ -57,8 +56,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/reviewData.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Review pending data points</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">View, accept, and reject pending data points. One or more data points can be selected for acceptance/rejection.</p>
                     </div>
                 </div>
             </div>

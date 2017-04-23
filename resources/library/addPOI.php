@@ -22,7 +22,6 @@ if ($stmt->execute()) {
     echo "Successfully added new point of interest!";
 } else {
     echo "Error occurred while adding new point of interest!";
-    echo mysqli_stmt_error($stmt);
 }
 
 

@@ -53,7 +53,7 @@ $(document).ready(function () {
             || dataValue === "") {
             alert('Please fill out all fields!');
         } else if (!isNormalInteger(dataValue)) {
-            alert('Data value must to be a non-negative integers!');
+            alert('Data value must be a non-negative integer!');
         } else {
             //submit values
             $.ajax({

@@ -47,8 +47,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/POICard.jpg" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Submit new point of interest</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Add a new POI location. Locations include location name, city, state, and zip code.</p>
                     </div>
                 </div>
 
@@ -56,8 +55,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     <img class="card-img-top" src="img/dataCard.jpg" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Add new data point</h4>
-                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Add a new data point to a POI. Data points include location, date/time, and data information.</p>
                     </div>
                 </div>
             </div>
