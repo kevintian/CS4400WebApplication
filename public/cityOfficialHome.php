@@ -32,7 +32,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
     <h2 class="text-right logout" id = "logout">Logout</h2>
     <div class="flex-column">
 
-        <div class="text-center animated fadeIn" style="animation-duration: 2s; margin: 5em 0 5em 0">
+        <div class="text-center animated fadeIn" style="animation-duration: 2s; margin: 4em 0 4em 0">
             <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
             <p class="text-muted">City Official</p>
         </div>
@@ -42,7 +42,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
             <h2>What would you like to do?</h2>
 
             <div class="card-deck w-50 card-center">
-                <div id="POIcard" class="card hoverable card-clickable">
+                <div id="filterSearchPOICard" class="card hoverable card-clickable">
                     <img class="card-img-top" src="img/filterAndSearch.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Filter & Search POI</h4>
@@ -51,7 +51,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
                     </div>
                 </div>
 
-                <div id="datacard" class="card hoverable card-clickable">
+                <div id="generateReportsCard" class="card hoverable card-clickable">
                     <img class="card-img-top" src="img/createReport.png" alt="Card image cap">
                     <div class="card-block">
                         <h4 class="card-title">Generate POI Report</h4>

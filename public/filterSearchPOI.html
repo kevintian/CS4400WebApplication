@@ -1,10 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Filter/Search POI</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Filter POI Report</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/material-datetime-picker.css" rel="stylesheet">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!--Custom CSS-->
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
+
 <body>
-Filter POIs
+
+<div style="height: 100vh">
+    <div class="flex-center flex-column animated fadeIn background">
+        <!--Form without header-->
+        <div class="card w-50">
+            <div class="card-block">
+
+                <!--Header-->
+                <div class="text-center">
+                    <h3>View POIs</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+
+                <!--Body-->
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                    Edit Filters
+                </button>
+
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer">
+                <button id = "submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-default" href="cityOfficialHome.php">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="flex-center">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="myModalLabel">Apply Filters</h4>
+                </div>
+                <!--Body-->
+                <div class="modal-body">
+                    <div id="locationName" class="row text-center text-inline justify-content-center">
+                        <div class="col-xl-6 col-lg-12 col-md-12">
+                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="locations">POI Name: </label>
+                            <div class="btn-group w-100" style="width:60%" role="group">
+                                <button id="locations" type="button" data-toggle="dropdown" value="1"
+                                        class="btn btn-primary dropdown-toggle">
+                                    Select Location<span class="caret"></span>
+                                </button>
+                                <ul id="locationMenu" class="dropdown-menu">
+                                    <!--Will be dynamically added by JS-->
+                                    <li><a href="#" data-value="1">Loading...</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="cityStateForm" class="row text-center text-inline justify-content-center">
+                        <div class="col-xl-6 col-lg-12 col-12">
+                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="cityStateName">City & State: </label>
+                            <div class="btn-group w-100" role="group">
+                                <button id="cityStateName" type="button" data-toggle="dropdown" value="1"
+                                        class="btn btn-primary dropdown-toggle">Select CityState<span class="caret"></span>
+                                </button>
+                                <ul id="cityStateMenu" class="dropdown-menu">
+                                    <li><a href="#" data-value="1">Loading</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="flaggedForm" class="row text-center text-inline justify-content-center">
+                        <div class="col-xl-6 col-lg-12 col-12">
+                            <label style="font-weight: 300; padding-right: 0px;" class="centered" for="flagged">Flagged: </label>
+                            <div id = "flagged" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" checked autocomplete="off"> Yes
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" autocomplete="off"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class = "row justify-content-center">
+                        <div class = "centered" style = "font-weight: 300;">POI Zip:</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-xl-5 col-lg-10 col-12">
+                            <div id="zipCodeForm" class="md-form">
+                                <input type="text" id="zipCode" class="form-control">
+                                <label for="zipCode">Zip Code</label>
+                                <div class="form-control-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class = "row justify-content-center">
+                        <div class = "centered" style = "font-weight: 300;">Date Flagged:</div>
+                    </div>
+                    <div class="row text-center justify-content-center">
+                        <br>
+                        <div class="col-xl-4 col-lg-6 col-12">
+                            <div class="md-form input-group" style="margin-bottom: 0;">
+                                <input id="startDate" type="text" class="form-control c-datepicker-btn">
+                                <label id = "startDateLabel" for="startDate">Start Time</label>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-6 col-12">
+                            <div class="md-form input-group" style="margin-bottom: 0;">
+                                <input id="endDate" type="text" class="form-control c-datepicker-btn">
+                                <label id = "endDateLabel" for="endDate">End Time</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Apply Filters</button>
+                    <button type="button" class="btn btn-info">Clear Filters</button>
+
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+</div>
+
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+<script src="js/dropdownToggle.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+
+<script src="js/filterPOI.js"></script>
+
+
 </body>
+
 </html>

@@ -31,7 +31,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_type'])) {
 <div style="height: 100vh">
     <h2 class="text-right logout" id = "logout">Logout</h2>
     <div class="flex-column">
-        <div class = "text-center animated fadeIn" style="animation-duration: 2s; margin: 5em 0 5em 0">
+        <div class = "text-center animated fadeIn" style="animation-duration: 2s; margin: 4em 0 4em 0">
             <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
             <p class="text-muted">City Scientist</p>
         </div>
