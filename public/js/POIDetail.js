@@ -133,15 +133,27 @@ $(document).ready(function () {
     });
 
 
+    //Check current status of the flag and style the button properly
+    updateFlagButton();
+
+
     $('#flagPoint').click(function () {
+        var flag = $('#flagPoint').text();
+        if (flag == "Flag POI") {
+            flag = 1; //this means flag the poi
+        } else {
+            flag = 0;
+        }
         $.ajax({
             type: 'POST',
             url: '../resources/library/flagPOI.php',
             data: {
-                locationName: getParameterByName('location')
+                locationName: getParameterByName('location'),
+                flag: flag
             },
             success: function (data) {
                 alert(data);
+                updateFlagButton();
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 alert(xhr.status);
@@ -160,4 +172,27 @@ function getParameterByName(name, url) {
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function updateFlagButton() {
+    $.ajax({
+        type: 'POST',
+        url: '../resources/library/currentFlagStatus.php',
+        data: {
+            locationName: getParameterByName('location')
+        },
+        success: function (data) {
+            if (data === '0') {
+                $('#flagPoint').attr("class", "btn btn-danger btn-resize");
+                $('#flagPoint').html("Flag POI")
+            } else {
+                $('#flagPoint').attr("class", "btn btn-success btn-resize");
+                $('#flagPoint').html("Unflag POI")
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
 }

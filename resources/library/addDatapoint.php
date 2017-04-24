@@ -25,7 +25,6 @@ if ($stmt->execute()) {
 }
 
 
-
 //Close prepared statement and result set
 $stmt -> close();
 

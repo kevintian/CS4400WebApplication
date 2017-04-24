@@ -6,7 +6,28 @@ var cityOfficial = false;
 $(document).ready(function () {
 
     //Initialize dropdown toggles
-    $('.dropdown-menu a').on('click', dropdownToggle);
+    //Populate dropdowns
+    $.ajax({
+        type: 'GET',
+        url: '../resources/library/populateDropdowns.php',
+        success: function (data) {
+            var result = JSON.parse(data);
+
+            //Populate list of city states
+            $('#cityStateMenu').empty();
+            for(var i = 0; i < result['locations'].length; i++) {
+                $('#cityStateMenu').append('<li><a href="#" data-value="' + (i+1) + '">' + result['cityStates'][i] + '</a></li>');
+            }
+
+            //Initialize dropdown toggles
+            $('.dropdown-menu a').on('click', dropdownToggle);
+
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+        }
+    });
 
     $('#userMenu').click(function () {
         if (new String($('#userType').text().trim()).valueOf() == new String("City Official").valueOf()) {
@@ -33,8 +54,7 @@ $(document).ready(function () {
 
         //City official only
         var title = $('#title').val();
-        var city = new String($('#city').text().trim());
-        var state = new String($('#state').text().trim());
+        var cityState = new String($('#cityStateName').text().trim());
 
 
         if (name == '') {
@@ -94,7 +114,7 @@ $(document).ready(function () {
                 $('#titleForm').find(".form-control-feedback").text("");
             }
 
-            if (city == new String("City").valueOf() || state == new String("State").valueOf()) {
+            if (cityState == new String("Select CityState").valueOf()) {
                 $('#cityStateForm').addClass("has-danger");
                 $('#cityStateForm').find(".form-control-feedback").text("Please choose a valid city and state");
                 validContent = false;
@@ -105,6 +125,8 @@ $(document).ready(function () {
         }
 
         if (validContent) {
+            var cityStateArr = cityState.split(",");
+
             $.ajax({
                 type: 'POST',
                 url: '../resources/library/register.php',
@@ -114,8 +136,8 @@ $(document).ready(function () {
                     password: password,
                     type: userType,
                     title: title,
-                    city: city,
-                    state: state
+                    city: cityStateArr[0].trim(),
+                    state: cityStateArr[1].trim()
                 },
                 success: function (data) {
                     var result = JSON.parse(data);
