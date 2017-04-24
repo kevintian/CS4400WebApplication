@@ -11,8 +11,8 @@ require 'dbConnection.php';
 //Because some of the query parameters can be null, we dynamically build the query string
 $locationName = $_POST["locationName"];
 $type = $_POST["type"];
-$minValue = $_POST["minValue"];
-$maxValue = $_POST["maxValue"];
+//$minValue = $_POST["minValue"];
+//$maxValue = $_POST["maxValue"];
 $startTime = $_POST["startTime"];
 $endTime = $_POST["endTime"];
 
@@ -38,14 +38,16 @@ if($type){
     $a_params[] = & $type;
 }
 
-if($minValue){
-    $filterValues[] = " dataValue > ? ";
+if(isset($_POST["minValue"])){
+    $minValue = $_POST["minValue"];
+    $filterValues[] = " dataValue >= ? ";
     $param_type .= 'i';
     $a_params[] = & $minValue;
 }
 
-if($maxValue){
-    $filterValues[] = " dataValue < ? ";
+if(isset($_POST["maxValue"])){
+    $maxValue = $_POST["maxValue"];
+    $filterValues[] = " dataValue <= ? ";
     $param_type .= 'i';
     $a_params[] = & $maxValue;
 }

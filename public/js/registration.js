@@ -55,6 +55,7 @@ $(document).ready(function () {
         //City official only
         var title = $('#title').val();
         var cityState = new String($('#cityStateName').text().trim());
+        var cityStateArr = [null, null];
 
 
         if (name == '') {
@@ -104,7 +105,6 @@ $(document).ready(function () {
 
         //if user is a city official
         if (cityOfficial) {
-
             if (title == '') {
                 $('#titleForm').addClass("has-danger");
                 $('#titleForm').find(".form-control-feedback").text("Title cannot be blank");
@@ -121,11 +121,13 @@ $(document).ready(function () {
             } else {
                 $('#cityStateForm').removeClass("has-danger");
                 $('#cityStateForm').find(".form-control-feedback").text("");
+                cityStateArr = cityState.split(",");
+                cityStateArr[0] = cityStateArr[0].trim();
+                cityStateArr[1] = cityStateArr[1].trim();
             }
         }
 
         if (validContent) {
-            var cityStateArr = cityState.split(",");
 
             $.ajax({
                 type: 'POST',
@@ -136,8 +138,8 @@ $(document).ready(function () {
                     password: password,
                     type: userType,
                     title: title,
-                    city: cityStateArr[0].trim(),
-                    state: cityStateArr[1].trim()
+                    city: cityStateArr[0],
+                    state: cityStateArr[1]
                 },
                 success: function (data) {
                     var result = JSON.parse(data);

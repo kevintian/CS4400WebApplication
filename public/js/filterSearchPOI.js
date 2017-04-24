@@ -16,10 +16,18 @@ $(document).ready(function () {
                 $('#locationMenu').append('<li><a href="#" style="color:#0275d8" data-value="' + (i + 1) + '">' + result['locations'][i] + '</a></li>');
             }
 
-            //Populate list of city states
-            $('#cityStateMenu').empty();
+            //Populate list of cities
+            $('#cityMenu').empty();
             for (var i = 0; i < result['locations'].length; i++) {
-                $('#cityStateMenu').append('<li><a href="#" style="color:#0275d8" data-value="' + (i + 1) + '">' + result['cityStates'][i] + '</a></li>');
+                var city = result['cityStates'][i].split(",")[0].trim();
+                $('#cityMenu').append('<li><a href="#" style="color:#0275d8" data-value="' + (i + 1) + '">' + city + '</a></li>');
+            }
+
+            //Populate list of cities
+            $('#stateMenu').empty();
+            for (var i = 0; i < result['locations'].length; i++) {
+                var state = result['cityStates'][i].split(",")[1].trim();
+                $('#stateMenu').append('<li><a href="#" style="color:#0275d8" data-value="' + (i + 1) + '">' + state + '</a></li>');
             }
 
             //Initialize dropdown toggles
@@ -38,8 +46,8 @@ $(document).ready(function () {
             "data": function (d) {
                 //Get all of the data from the form.
                 var poiName = new String($('#locations').text().trim());
-                var cityState = new String($('#cityStateName').text().trim());
-                var cityStateArr = [];
+                var city = new String($('#cityName').text().trim());
+                var state = new String($('#stateName').text().trim());
                 var flagged = $('#flagged > .btn.active').text().trim();
                 var zipcode = $.trim($('#zipCode').val());
                 var startTime = $('#startDate').val();
@@ -55,15 +63,17 @@ $(document).ready(function () {
                 if (poiName == new String("Select Location").valueOf()) {
                     poiName = null;
                 }
-                if (cityState == new String("Select CityState").valueOf()) {
+
+                if (city == new String("Select City").valueOf()) {
                     //Corresponding values for city and state
-                    cityStateArr[0] = null;
-                    cityStateArr[1] = null;
-                } else {
-                    cityStateArr = cityState.split(",");
-                    cityStateArr[0] = cityStateArr[0].trim();
-                    cityStateArr[1] = cityStateArr[1].trim();
+                    city = null;
                 }
+
+                if (state == new String("Select State").valueOf()) {
+                    //Corresponding values for city and state
+                    state = null;
+                }
+
                 if (zipcode === "") {
                     zipcode = null;
                 }
@@ -79,8 +89,8 @@ $(document).ready(function () {
                 }
 
                 d.locationName = poiName;
-                d.city = cityStateArr[0];
-                d.state = cityStateArr[1];
+                d.city = city;
+                d.state = state;
                 d.zipCode = zipcode;
                 d.flag = flagged;
                 d.dateFlaggedStart = startTime;

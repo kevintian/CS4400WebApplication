@@ -48,11 +48,11 @@ $(document).ready(function () {
                 }
 
                 if (minValue === "") {
-                    minValue = null;
+                    minValue = undefined;
                 }
 
                 if (maxValue === "") {
-                    maxValue = null;
+                    maxValue = undefined;
                 }
 
                 if (startTime === "") {
@@ -129,7 +129,11 @@ $(document).ready(function () {
     });
 
     $('#applyFilters').click(function () {
-        table.ajax.reload();
+        if (isNormalInteger($('#maxValue').val()) && isNormalInteger($('#minValue').val())) {
+            table.ajax.reload();
+        } else {
+            alert("Please enter a valid, non negative integer");
+        }
     });
 
 
@@ -195,4 +199,9 @@ function updateFlagButton() {
             alert(thrownError);
         }
     });
+}
+
+function isNormalInteger(str) {
+    var n = Math.floor(Number(str));
+    return String(n) === str && n >= 0;
 }

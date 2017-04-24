@@ -20,3 +20,10 @@ if ($response) {
 
     echo $row["flag"];
 }
+
+//Close prepared statement and result set
+$stmt -> close();
+$response -> close();
+
+//Close connection
+$dbc -> close();

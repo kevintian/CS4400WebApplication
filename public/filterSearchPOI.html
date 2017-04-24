@@ -108,14 +108,30 @@
 
                     <br>
 
-                    <div id="cityStateForm" class="row text-center text-inline justify-content-center">
+                    <div id="cityForm" class="row text-center text-inline justify-content-center">
                         <div class="col-xl-6 col-lg-12 col-12">
-                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="cityStateName">City & State: </label>
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="cityName">City: </label>
                             <div class="btn-group w-100" role="group">
-                                <button id="cityStateName" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
-                                        class="btn btn-primary dropdown-toggle">Select CityState<span class="caret"></span>
+                                <button id="cityName" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
+                                        class="btn btn-primary dropdown-toggle">Select City<span class="caret"></span>
                                 </button>
-                                <ul id="cityStateMenu" class="dropdown-menu">
+                                <ul id="cityMenu" class="dropdown-menu">
+                                    <li><a href="#" data-value="1">Loading</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="stateForm" class="row text-center text-inline justify-content-center">
+                        <div class="col-xl-6 col-lg-12 col-12">
+                            <label style="font-weight: 300; padding-right: 0px; padding-bottom: 20px;" class="centered" for="stateName">State: </label>
+                            <div class="btn-group w-100" role="group">
+                                <button id="stateName" type="button" data-toggle="dropdown" value="1" style = "font-size: 1rem"
+                                        class="btn btn-primary dropdown-toggle">Select State<span class="caret"></span>
+                                </button>
+                                <ul id="stateMenu" class="dropdown-menu">
                                     <li><a href="#" data-value="1">Loading</a></li>
                                 </ul>
                             </div>
